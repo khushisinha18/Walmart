@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+            rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&display=swap"
+            rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans+Caption:wght@400;700&family=Pacifico&display=swap"
+            rel="stylesheet">
+        <title>Prediction Form</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <!-- Your other CSS and JavaScript files -->
+        
+        <script src="script.js" defer></script> <!-- Add defer attribute to load script after the DOM is ready -->
+
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div class="form_flex radius">
+
+                <h1 class="walmart">Walmart sales</h1>
+                <!--<p class="fill_heading">Fill the form for the prediction</p> -->
+                <form class="form_box" id="predictionForm">
+                    <label for="Store">Store:</label><br>
+                    <input type="number" id="Store" name="Store" value="1"
+                        required><br>
+
+                    <label for="Dept">Dept:</label><br>
+                    <input type="number" id="Dept" name="Dept" value="1"
+                        required><br>
+
+                    <label for="Temperature">Temperature:</label><br>
+                    <input type="number" id="Temperature" name="Temperature"
+                        step="0.01" value="55.0" required><br>
+
+                    <label for="MarkDown1">MarkDown1:</label><br>
+                    <input type="number" id="MarkDown1" name="MarkDown1"
+                        step="0.01" value="1000.0" required><br>
+
+                    <label for="MarkDown2">MarkDown2:</label><br>
+                    <input type="number" id="MarkDown2" name="MarkDown2"
+                        step="0.01" value="2000.0" required><br>
+
+                    <label for="MarkDown4">MarkDown4:</label><br>
+                    <input type="number" id="MarkDown4" name="MarkDown4"
+                        step="0.01" value="500.0" required><br>
+
+                    <label for="MarkDown5">MarkDown5:</label><br>
+                    <input type="number" id="MarkDown5" name="MarkDown5"
+                        step="0.01" value="3000.0" required><br>
+
+                    <label for="Size">Size:</label><br>
+                    <input type="number" id="Size" name="Size" value="151315"
+                        required><br>
+
+                    <label for="Type_A">Type A :</label>
+                    <label for="Type_B">Type B :</label>
+                    <label for="Type_C">Type C :</label><br>
+                    <input class="radio" type="radio" id="Type_A" name="Type_A"
+                        value="0" onclick="updateValue('Type_A')">
+                    <input class="radio" type="radio" id="Type_B" name="Type_B"
+                        value="0" onclick="updateValue('Type_B')">
+                    <input class="radio" type="radio" id="Type_C" name="Type_C"
+                        value="0" onclick="updateValue('Type_C')"><br>
+
+                    <label for="Month">Month:</label><br>
+                    <input type="number" id="Month" name="Month" value="1"
+                        required><br>
+
+                    <label for="Day">Day:</label><br>
+                    <input type="number" id="Day" name="Day" value="1"
+                        required><br>
+
+                    <label for="isHoliday">isHoliday:</label>
+                    <select id="isHoliday" name="isHoliday" required>
+                        <option value="true">True</option>
+                        <option value="false" selected>False</option>
+                        <!-- Set default value as False -->
+                    </select><br><br>
+
+                    <input class="_button" type="submit" value="Predict">
+                </form>
+            </div>
+
+            <div class="Result_container">
+
+                <h1 class="prediction_text">Predictions</h1><br><br>
+
+                <div class="result_box">
+                    <p class="result_text">Weekly Sales</p>
+                    <p class="result_text_number" id="predictionResult"></p>
+                </div>
+
+                <!-- <h1 class="prediction_text">Inventory Levels</h1>
+
+            <ul class="responsive-table"></ul> -->
+
+                <h1 class="prediction_text">Inventory Levels</h1>
+
+                <canvas id="myChart"
+                    class="myChart"></canvas>
+
+            </div>
+
+            <div class="form_flex">
+
+                <h1 class="Inventory_email">Inventory and email <br> Portal</h1>
+                <!--<p class="fill_heading">Fill the form for the prediction</p> -->
+                <form class="form_box" id="inventory_form">
+                    <label for="storeSelect">Select Store:</label>
+                    <select id="storeSelect"></select><br><br>
+
+                    <label for="deptSelect">Select Department:</label>
+                    <select class="input" id="deptSelect"></select><br><br>
+
+                    <input class="_button" type="submit"
+                        value="Check Inventory">
+                </form>
+                <form class="form_email" id="email-form">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                    <br><br>
+                    <button class="_button" type="submit">Send Email</button>
+                </form>
+            </div>
+
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+
+</html>
